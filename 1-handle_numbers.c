@@ -50,3 +50,20 @@ void print_number(int n)
 	else
 		_putchar(n + 48);
 }
+
+void print_binary(int n)
+{
+	int i = 0;
+	int binary[32];
+	int j;
+
+	while (n > 0) {
+		binary[i] = n % 2;
+		n /= 2;
+		i++;
+	}
+
+	for (j = i - 1; j >= 0; j--) {
+		_putchar(binary[j] + 48);
+	}
+}

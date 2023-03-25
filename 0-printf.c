@@ -35,6 +35,13 @@ int handle_format(char c, va_list arg)
 	{
 		_putchar('%');
 	}
+	else if (c == 'b')
+	{
+		int n = va_arg(arg, int);
+
+		print_binary(n);
+		return (_num_count(n));
+	}
 	else
 	{
 		_putchar(c);
