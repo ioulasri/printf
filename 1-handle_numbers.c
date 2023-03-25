@@ -10,6 +10,11 @@ int _num_count(int num)
 {
 	int count = 0;
 
+	if (num < 0)
+	{
+		num *= -1;
+		count++;
+	}
 	while (num > 0)
 	{
 		num /= 10;
