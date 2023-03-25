@@ -11,6 +11,6 @@ int _strlen(char *s);
 void _puts(char *str);
 int _num_count(int num);
 void print_number(int n);
-void print_binary(int n);
+void print_binary(unsigned int n);
 
 #endif

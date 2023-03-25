@@ -51,9 +51,9 @@ void print_number(int n)
 		_putchar(n + 48);
 }
 
-void print_binary(int n)
+void print_binary(unsigned int n)
 {
-	int i = 0;
+	unsigned int i = 0;
 	int binary[32];
 	int j;
 
