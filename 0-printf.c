@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-void _putchar(char c, int *sum)
+void __putchar(char c, int *sum)
 {
     write(1, &c, 1),
     (*sum)++;
@@ -34,7 +34,7 @@ void print_int(int num, int *sum)
         print_int((num % 10), sum);
     }
 }
-c
+void print_str(char *str, int *sum)
 {
     int i = 0;
 
@@ -55,12 +55,12 @@ void handel_spec(char c, int * sum, va_list args)
     else if (c == 'c')
     {
         char c = va_arg(args, int);
-        _putchar(c, sum);
+        __putchar(c, sum);
     }
     else if (c == '%')
     {
         char c = '%';
-        _putchar(c, sum);
+        __putchar(c, sum);
     }
     else if (c == 's')
     {
@@ -79,7 +79,7 @@ int _printf(char *str, ...)
     {
         if (str[i] != '%')
         {
-            _putchar(str[i], &sum);
+            __putchar(str[i], &sum);
             i++;
         }
         else
