@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stdio.h>
 
 /**
  * handle_format - handles given format specifiers and prints the args
