@@ -71,6 +71,8 @@ int _printf(const char *format, ...)
 		else
 		{
 			re = handle_format(format[i + 1], arg);
+			if (re == -1)
+				return (-1);
 			printed_chars += re;
 			i += 2;
 		}
