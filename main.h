@@ -6,6 +6,7 @@
 
 void _putchar(char c);
 int _printf(const char *format, ...);
+int handle_format(char c, va_list arg);
 int _strlen(char *s);
 void _puts(char *str);
 int _num_count(int num);
