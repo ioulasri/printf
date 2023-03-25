@@ -9,14 +9,7 @@
 
 int handle_format(char c, va_list arg)
 {
-	if (c == 'd' || c == 'i')
-	{
-		int num = va_arg(arg, int);
-
-		print_number(num);
-		return (_num_count(num));
-	}
-	else if (c == 'c')
+	if (c == 'c')
 	{
 		char e = va_arg(arg, int);
 
