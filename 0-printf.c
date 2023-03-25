@@ -64,7 +64,6 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			_putchar(format[i]);
-			i++;
 			printed_chars += 1;
 		}
 		else
@@ -73,6 +72,7 @@ int _printf(const char *format, ...)
 			printed_chars += re;
 			i += 2;
 		}
+		i++;
 	}
 
 	va_end(arg);
