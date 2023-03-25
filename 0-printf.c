@@ -58,22 +58,20 @@ int _printf(const char *format, ...)
 	va_list arg;
 
 	va_start(arg, format);
-	if (format)
+
+	while (format[i])
 	{
-		while (format[i])
+		if (format[i] != '%')
 		{
-			if (format[i] != '%')
-			{
-				_putchar(format[i]);
-				i++;
-				printed_chars += 1;
-			}
-			else
-			{
-				re = handle_format(format[i + 1], arg);
-				printed_chars += re;
-				i += 2;
-			}
+			_putchar(format[i]);
+			i++;
+			printed_chars += 1;
+		}
+		else
+		{
+			re = handle_format(format[i + 1], arg);
+			printed_chars += re;
+			i += 2;
 		}
 	}
 
