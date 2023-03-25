@@ -51,7 +51,7 @@ int handle_format(char c, va_list arg)
 int _printf(const char *format, ...)
 {
 	int i = 0;
-	int printed_chars = 0;
+	int printed_chars = -1;
 	int re;
 	va_list arg;
 
