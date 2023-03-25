@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void _putchar(char c);
+int _putchar(char c);
 int _printf(const char *format, ...);
 int handle_format(char c, va_list arg);
 int _strlen(char *s);
