@@ -11,5 +11,7 @@ int main(void)
 	_printf("Percent:[%%]\n");
 	printf("Percent:[%%]\n");
 	_printf("Print this number [%d]\n", -2147483648);
+	printf("hello [%c] oh\n", '\n');
+	_printf("hello [%c] oh\n", '\n');
 	return (0);
 }
