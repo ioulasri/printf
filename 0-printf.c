@@ -51,10 +51,10 @@ int handle_format(char c, va_list arg)
 int _printf(const char *format, ...)
 {
 	va_list args;
+	int count;
 
+	count = 0;
 	va_start(args, format);
-
-	int count = 0;
 
 	while (*format != '\0')
 	{
@@ -79,4 +79,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
