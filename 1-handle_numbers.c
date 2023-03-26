@@ -32,12 +32,17 @@ int _num_count(int num)
 void print_int(int num, int *sum)
 {
 	char c;
+	unsigned int tmp;
 
 	if (num < 0)
 	{
 		write(1, "-", 1);
 		(*sum)++;
-		num *= -1;
+		tmp = num * -1;
+	}
+	else
+	{
+		tmp = num;
 	}
 
 	if (num < 10)
@@ -48,7 +53,7 @@ void print_int(int num, int *sum)
 	}
 	else
 	{
-		print_int((num / 10), sum);
-		print_int((num % 10), sum);
+		print_int((tmp / 10), sum);
+		print_int((tmp % 10), sum);
 	}
 }
