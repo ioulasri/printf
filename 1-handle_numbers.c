@@ -39,8 +39,6 @@ void print_int(int num, int *sum)
 		(*sum)++;
 		num *= -1;
 	}
-	else
-		num *= 1;
 
 	if (num < 10)
 	{
