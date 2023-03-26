@@ -1,42 +1,39 @@
 #include "main.h"
 
 /**
- * handle_format - handles given format specifiers and prints the args
+ * handle_spec - handles given format specifiers and prints the args
  * @c: the format specifier
- * @arg: the arguments
+ * @args: the arguments
+ * @sum: the number of characters printed
  * Return: returns the number of characters printed
  */
 
-int handle_format(char c, va_list arg)
+void handle_spec(char c, int *sum, va_list args)
 {
 	if (c == 'd' || c == 'i')
 	{
-		int num = va_arg(arg, int);
+		int num = va_arg(args, int);
 
-		print_number(num);
-		return (_num_count(num));
+		print_int(num, sum);
 	}
 	else if (c == 'c')
 	{
-		char e = va_arg(arg, int);
+		char c = va_arg(args, int);
 
-		_putchar(e);
-		return (1);
+		_putchar(c, sum);
+	}
+	else if (c == '%')
+	{
+		char c = '%';
+
+		_putchar(c, sum);
 	}
 	else if (c == 's')
 	{
-		char *s = va_arg(arg, char *);
+		char *str = va_arg(args, char *);
 
-		_puts(s);
-		return (_strlen(s));
+		print_str(str, sum);
 	}
-
-	else if (c == '%')
-	{
-		_putchar('%');
-		return (1);
-	}
-	return (1);
 }
 
 /**
@@ -48,33 +45,23 @@ int handle_format(char c, va_list arg)
 int _printf(const char *format, ...)
 {
 	int i = 0;
-	int printed_chars = 0;
-	int re;
-	va_list arg;
+	int sum = 0;
+	va_list args;
 
-	va_start(arg, format);
-
-	if (format == NULL)
-		return (-1);
-
-	while (format[i] && format)
+	va_start(args, str);
+	while (*(str + i))
 	{
-		if (format[i] != '%')
+		if (str[i] != '%')
 		{
-			_putchar(format[i]);
+			_putchar(str[i], &sum);
 			i++;
-			printed_chars += 1;
 		}
 		else
 		{
-			re = handle_format(format[i + 1], arg);
-			if (re == -1)
-				return (-1);
-			printed_chars += re;
-			i += 2;
+			  handle_spec(str[i + 1], &sum, args);
+			  i += 2;
 		}
 	}
-
-	va_end(arg);
-	return (printed_chars);
+	va_end(args);
+	return (sum);
 }

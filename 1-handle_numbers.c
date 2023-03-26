@@ -24,29 +24,34 @@ int _num_count(int num)
 }
 
 /**
- * print_number - prints a given number
- * @n: the number to be printed
+ * print_int- prints a given number
+ * @num: the number to be printed
+ * @sum: the sum of printed char(int numbers)
  */
 
-void print_number(int n)
+void print_int(int num, int *sum)
 {
-	if (n == -2147483648)
-	{
-		_putchar('-');
-		_putchar('2');
-		print_number(147483648);
-	}
-	else if (n < 0)
-	{
-		_putchar('-');
-		n = -n;
-		print_number(n);
-	}
-	else if (n > 9)
-	{
-		print_number(n / 10);
-		print_number(n % 10);
-	}
-	else
-		_putchar(n + 48);
+    static int sign;
+    char c;
+
+    if (num < 0)
+    {
+        write(1, "-", 1);
+        (*sum)++;
+        num *= -1;
+    }
+    else
+        num *= 1;
+    
+    if (num < 10)
+    {
+        c = num + '0';
+        write(1, &c, 1);
+        (*sum)++;
+    }
+    else
+    {
+        print_int((num / 10), sum);
+        print_int((num % 10), sum);
+    }
 }
