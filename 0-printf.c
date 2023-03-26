@@ -20,7 +20,10 @@ void handle_spec(char c, int *sum, va_list args)
 	{
 		char c = va_arg(args, int);
 
-		_putchar(c, sum);
+		if (c == '\0')
+			_putchar(' ');
+		else
+			_putchar(c, sum);
 	}
 	else if (c == '%')
 	{
