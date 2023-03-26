@@ -34,10 +34,12 @@ int handle_format(char c, va_list arg)
 	else if (c == '%')
 	{
 		_putchar('%');
+		return (1);
 	}
 	else
 	{
 		_putchar(c);
+		return (1);
 	}
 	return (1);
 }
