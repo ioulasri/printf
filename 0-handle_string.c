@@ -44,3 +44,35 @@ void _puts(char *str)
 		i++;
 	}
 }
+
+void print_char(va_list args, int *count)
+{
+    char c = (char) va_arg(args, int);
+
+    putchar(c);
+    (*count)++;
+}
+
+/**
+ * print_string - prints a given string
+ * @args: the string
+ * @count: the len of the word
+ */
+
+
+void print_string(va_list args, int *count)
+{
+    char *s = va_arg(args, char *);
+
+    while (*s != '\0') {
+        putchar(*s);
+        s++;
+        (*count)++;
+    }
+}
+
+void print_percent(int *count)
+{
+    putchar('%');
+    (*count)++;
+}

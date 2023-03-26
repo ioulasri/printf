@@ -50,34 +50,33 @@ int handle_format(char c, va_list arg)
 
 int _printf(const char *format, ...)
 {
-	int i = 0;
-	int printed_chars = 0;
-	int re;
-	va_list arg;
+	va_list args;
 
-	va_start(arg, format);
+	va_start(args, format);
 
-	if (format == NULL)
-		return (-1);
+	int count = 0;
 
-	while (format[i] && format)
+	while (*format != '\0')
 	{
-		if (format[i] != '%')
+		if (*format == '%')
 		{
-			_putchar(format[i]);
-			i++;
-			printed_chars += 1;
+			format++;
+			if (*format == 'c')
+				print_char(args, &count);
+			else if (*format == 's')
+				print_string(args, &count);
+			else if (*format == '%')
+				print_percent(&count);
 		}
 		else
 		{
-			re = handle_format(format[i + 1], arg);
-			if (re == -1)
-				return (-1);
-			printed_chars += re;
-			i += 2;
+			putchar(*format);
+			count++;
 		}
+		format++;
 	}
 
-	va_end(arg);
-	return (printed_chars);
+	va_end(args);
+	return (count);
 }
+
