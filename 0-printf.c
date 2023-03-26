@@ -32,10 +32,7 @@ void handle_spec(char c, int *sum, va_list args)
 	{
 		char *str = va_arg(args, char *);
 
-		if (str == NULL)
-			print_str("(null)", sum);
-		else
-			print_str(str, sum);
+		print_str(str, sum);
 	}
 }
 
