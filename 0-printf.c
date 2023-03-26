@@ -34,7 +34,7 @@ int handle_format(char c, va_list arg)
 	else if (c == '%')
 	{
 		_putchar('%');
-	}`
+	}
 	else
 	{
 		_putchar(c);
