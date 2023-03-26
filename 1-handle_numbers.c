@@ -45,9 +45,9 @@ void print_int(int num, int *sum)
 		tmp = num;
 	}
 
-	if (num < 10)
+	if (tmp < 10)
 	{
-		c = num + '0';
+		c = tmp + '0';
 		write(1, &c, 1);
 		(*sum)++;
 	}
