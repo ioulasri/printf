@@ -31,26 +31,26 @@ int _num_count(int num)
 
 void print_int(int num, int *sum)
 {
-    char c;
+	char c;
 
-    if (num < 0)
-    {
-        write(1, "-", 1);
-        (*sum)++;
-        num *= -1;
-    }
-    else
-        num *= 1;
-    
-    if (num < 10)
-    {
-        c = num + '0';
-        write(1, &c, 1);
-        (*sum)++;
-    }
-    else
-    {
-        print_int((num / 10), sum);
-        print_int((num % 10), sum);
-    }
+	if (num < 0)
+	{
+		write(1, "-", 1);
+		(*sum)++;
+		num *= -1;
+	}
+	else
+		num *= 1;
+
+	if (num < 10)
+	{
+		c = num + '0';
+		write(1, &c, 1);
+		(*sum)++;
+	}
+	else
+	{
+		print_int((num / 10), sum);
+		print_int((num % 10), sum);
+	}
 }

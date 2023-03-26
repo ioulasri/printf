@@ -21,12 +21,13 @@ int _strlen(char *s)
 /**
  * _putchar - prints a character to stdout
  * @c: the char to print
+ * @sum: the number of printed char
  */
 
 void _putchar(char c, int *sum)
 {
-    write(1, &c, 1),
-    (*sum)++;
+	write(1, &c, 1),
+	(*sum)++;
 }
 
 /**
@@ -37,12 +38,12 @@ void _putchar(char c, int *sum)
 
 void print_str(char *str, int *sum)
 {
-    int i = 0;
+	int i = 0;
 
-    while (str[i])
-    {
-        write(1, &str[i], 1);
-        i++;
-        (*sum)++;
-    }
+	while (str && str[i])
+	{
+		write(1, &str[i], 1);
+		(*sum)++;
+		i++;
+	}
 }
