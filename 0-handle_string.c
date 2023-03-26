@@ -26,7 +26,10 @@ int _strlen(char *s)
 
 void _putchar(char c, int *sum)
 {
-	write(1, &c, 1),
+	if (c == '\0')
+		write(1, " ", 1);
+	else
+		write(1, &c, 1);
 	(*sum)++;
 }
 
