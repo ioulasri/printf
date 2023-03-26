@@ -18,15 +18,15 @@ void handle_spec(char c, int *sum, va_list args)
 	}
 	else if (c == 'c')
 	{
-		char c = va_arg(args, int);
+		char ch = va_arg(args, int);
 
-		_putchar(c, sum);
+		_putchar(ch, sum);
 	}
 	else if (c == '%')
 	{
-		char c = '%';
+		char ch = '%';
 
-		_putchar(c, sum);
+		_putchar(ch, sum);
 	}
 	else if (c == 's')
 	{
