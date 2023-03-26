@@ -21,7 +21,7 @@ void handle_spec(char c, int *sum, va_list args)
 		char c = va_arg(args, int);
 
 		if (c == '\0')
-			_putchar(' ');
+			_putchar(' ', sum);
 		else
 			_putchar(c, sum);
 	}
