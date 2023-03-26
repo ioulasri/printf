@@ -34,7 +34,7 @@ int handle_format(char c, va_list arg)
 	else if (c == '%')
 	{
 		_putchar('%');
-	}
+	}`
 	else
 	{
 		_putchar(c);
@@ -50,32 +50,34 @@ int handle_format(char c, va_list arg)
 
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int count;
+	int i = 0;
+	int printed_chars = 0;
+	int re;
+	va_list arg;
 
-	count = 0;
-	va_start(args, format);
+	va_start(arg, format);
 
-	while (*format != '\0')
+	if (format == NULL)
+		return (-1);
+
+	while (format[i] && format)
 	{
-		if (*format == '%')
+		if (format[i] != '%')
 		{
-			format++;
-			if (*format == 'c')
-				print_char(args, &count);
-			else if (*format == 's')
-				print_string(args, &count);
-			else if (*format == '%')
-				print_percent(&count);
+			_putchar(format[i]);
+			i++;
+			printed_chars += 1;
 		}
 		else
 		{
-			putchar(*format);
-			count++;
+			re = handle_format(format[i + 1], arg);
+			if (re == -1)
+				return (-1);
+			printed_chars += re;
+			i += 2;
 		}
-		format++;
 	}
 
-	va_end(args);
-	return (count);
+	va_end(arg);
+	return (printed_chars);
 }
