@@ -31,7 +31,6 @@ int _num_count(int num)
 
 void print_int(int num, int *sum)
 {
-    static int sign;
     char c;
 
     if (num < 0)

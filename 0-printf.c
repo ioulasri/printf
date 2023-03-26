@@ -48,17 +48,17 @@ int _printf(const char *format, ...)
 	int sum = 0;
 	va_list args;
 
-	va_start(args, str);
-	while (*(str + i))
+	va_start(args, format);
+	while (*(format + i))
 	{
-		if (str[i] != '%')
+		if (format[i] != '%')
 		{
-			_putchar(str[i], &sum);
+			_putchar(format[i], &sum);
 			i++;
 		}
 		else
 		{
-			  handle_spec(str[i + 1], &sum, args);
+			  handle_spec(format[i + 1], &sum, args);
 			  i += 2;
 		}
 	}
