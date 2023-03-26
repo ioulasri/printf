@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 void _putchar(char c, int *sum);
 int _printf(const char *format, ...);
