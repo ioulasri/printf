@@ -20,13 +20,13 @@ void handle_spec(char c, int *sum, va_list args)
 	{
 		char ch = va_arg(args, int);
 
-		_putchar(ch, sum);
+		sum += _putchar(ch);
 	}
 	else if (c == '%')
 	{
 		char ch = '%';
 
-		_putchar(ch, sum);
+		sum += _putchar(ch);
 	}
 	else if (c == 's')
 	{
@@ -39,7 +39,7 @@ void handle_spec(char c, int *sum, va_list args)
 	}
 	else
 	{
-		_putchar(c, sum);
+		sum += _putchar(c);
 	}
 }
 
@@ -62,7 +62,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			_putchar(format[i], &sum);
+			sum += _putchar(format[i]);
 			i++;
 		}
 		else
