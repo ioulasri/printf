@@ -37,6 +37,12 @@ void handle_spec(char c, int *sum, va_list args)
 		else
 			print_str(str, sum);
 	}
+	else if (c == 'b')
+	{
+		int num = va_arg(args, int);
+
+		print_binary(num, sum);
+	}
 	else
 	{
 		_putchar(c, sum);

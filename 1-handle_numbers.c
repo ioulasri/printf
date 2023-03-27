@@ -57,3 +57,36 @@ void print_int(int num, int *sum)
 		print_int((tmp % 10), sum);
 	}
 }
+
+/**
+ * print_binary - prints binary value of param.
+ *
+ * @num: The integer to print in binary form.
+ * @sum: A pointer to an integer variable
+ * that keeps track of the total
+ * number of characters printed so far.
+ */
+
+void print_binary(int num, int *sum)
+{
+	int bits[32];
+	int i = 0;
+
+	if (num < 0)
+	{
+		putchar('-');
+		num = -num;
+		(*sum)++;
+	}
+
+	do {
+		bits[i++] = num % 2;
+		num /= 2;
+	} while (num > 0);
+
+	while (--i >= 0)
+	{
+		putchar(bits[i] + '0');
+		(*sum)++;
+	}
+}

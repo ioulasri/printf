@@ -12,5 +12,6 @@ int _strlen(char *s);
 void print_str(char *str, int *sum);
 int _num_count(int num);
 void print_int(int num, int *sum);
+void print_binary(int num, int *sum);
 
 #endif
