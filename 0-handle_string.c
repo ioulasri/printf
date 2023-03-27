@@ -40,8 +40,6 @@ void print_str(char *str, int (*sum))
 {
 	int i = 0;
 
-	if (str[0] == '\0')
-		return (NULL);
 	while (str && str[i])
 	{
 		write(1, &str[i], 1);
