@@ -37,6 +37,8 @@ void handle_spec(char c, int *sum, va_list args)
 		else
 			print_str(str, sum);
 	}
+	else
+		_putchar(c, sum);
 }
 
 /**
