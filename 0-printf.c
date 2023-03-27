@@ -66,8 +66,6 @@ int _printf(const char *format, ...)
 		else
 		{
 			handle_spec(format[i + 1], &sum, args);
-			if (format[i + 2] == '%')
-				handle_spec(format[i + 2], &sum, args);
 			i += 2;
 		}
 	}
