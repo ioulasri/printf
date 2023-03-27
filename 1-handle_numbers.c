@@ -74,7 +74,7 @@ void print_binary(int num, int *sum)
 
 	if (num < 0)
 	{
-		_putchar('-', sum);
+		putchar('-');
 		num = -num;
 		(*sum)++;
 	}
@@ -86,7 +86,7 @@ void print_binary(int num, int *sum)
 
 	while (--i >= 0)
 	{
-		_putchar(bits[i] + '0', sum);
+		putchar(bits[i] + '0');
 		(*sum)++;
 	}
 }

@@ -13,7 +13,8 @@ int main(void)
 	printf("Let's try to printf a simple sentence.\n");
 	_printf("Character:[%c]\n", "%z");
 	printf("Character:[%c]\n", '%');
-	_printf("me binary value of (123) is %b\n", 123);
+	len = _printf("%b\n", 98);
+	printf("%d\n", len);
 	len = _printf("String:[%%%%] ok %d\n", 43);
 	printf("%d\n", len);
 	len = printf("String:[%%%%] ok %d\n", 32);
