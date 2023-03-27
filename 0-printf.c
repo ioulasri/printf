@@ -71,6 +71,8 @@ int _printf(const char *format, ...)
 			i += 2;
 		}
 	}
+	if (!sum)
+		sum = -1;
 	va_end(args);
 	return (sum);
 }
