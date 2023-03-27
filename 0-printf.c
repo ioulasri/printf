@@ -56,7 +56,7 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-	if (format == NULL || args == NULL)
+	if (!format || !format[0])
 		return (-1);
 	while (*(format + i) && format)
 	{
