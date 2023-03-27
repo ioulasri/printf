@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int _putchar(char c);
+void _putchar(char c, int *sum);
 int _printf(const char *format, ...);
 void handle_spec(char c, int *sum, va_list args);
 int _strlen(char *s);

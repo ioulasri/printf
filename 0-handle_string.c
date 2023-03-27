@@ -24,9 +24,10 @@ int _strlen(char *s)
  * @sum: the number of printed char
  */
 
-int _putchar(char c)
+void _putchar(char c, int *sum)
 {
-	return (write(1, &c, 1));
+	write(1, &c, 1);
+	(*sum)++;
 }
 
 /**
