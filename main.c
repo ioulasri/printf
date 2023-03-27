@@ -18,7 +18,10 @@ int main(void)
 	_printf("%d\n", len);
 	_printf("Percent:[%%]\n");
 	printf("Percent:[%%]\n");
-	_printf("Print this number [%d]\n", -2147483648);
+	len = _printf("Print this number [%d]\n", -214748648);
+	printf("%d\n", len);
+	len = printf("Print this number [%d]\n", -214748648);
+	printf("%d\n", len);
 	printf("hello [%c] oh\n", '\n');
 	_printf("hello [%c] oh\n", '\n');
 	return (0);

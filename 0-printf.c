@@ -8,43 +8,38 @@
  * Return: returns the number of characters printed
  */
 
-int handle_spec(char c, va_list args)
+void handle_spec(char c, int *sum, va_list args)
 {
 	if (c == 'd' || c == 'i')
 	{
 		int num = va_arg(args, int);
 
-		print_int(num);
-		return(_num_count(num));
+		print_int(num, sum);
 	}
 	else if (c == 'c')
 	{
 		char ch = va_arg(args, int);
 
-		_putchar(ch);
-		return (1);
+		_putchar(ch, sum);
 	}
 	else if (c == '%')
 	{
 		char ch = '%';
 
-		_putchar(ch);
-		return (1);
+		_putchar(ch, sum);
 	}
 	else if (c == 's')
 	{
 		char *str = va_arg(args, char *);
 
 		if (str == NULL)
-			print_str("(null)");
+			print_str("(null)", sum);
 		else
-			print_str(str);
-		return (_strlen(str));
+			print_str(str, sum);
 	}
 	else
 	{
-		_putchar(c);
-		return (1);
+		_putchar(c, sum);
 	}
 }
 
@@ -57,7 +52,7 @@ int handle_spec(char c, va_list args)
 int _printf(const char *format, ...)
 {
 	int i = 0;
-	int printed_chars = 0;
+	int sum = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -67,16 +62,15 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			_putchar(format[i]);
-			printed_chars += 1;
+			_putchar(format[i], &sum);
 			i++;
 		}
 		else
 		{
-			printed_chars += handle_spec(format[i + 1], args);
+			handle_spec(format[i + 1], &sum, args);
 			i += 2;
 		}
 	}
 	va_end(args);
-	return (printed_chars);
+	return (sum);
 }
