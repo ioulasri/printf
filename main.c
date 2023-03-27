@@ -12,9 +12,9 @@ int main(void)
 	printf("Let's try to printf a simple sentence.\n");
 	_printf("Character:[%c]\n", "%z");
 	printf("Character:[%c]\n", '%');
-	len = _printf("String:[%%%] ok %d\n", 43); 
+	len = _printf("String:[%%%%] ok %d\n", 43); 
 	printf("%d\n", len);
-	len = printf("String:[%%%] ok %d\n", 32);
+	len = printf("String:[%%%%] ok %d\n", 32);
 	_printf("%d\n", len);
 	_printf("Percent:[%%]\n");
 	printf("Percent:[%%]\n");
