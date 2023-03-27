@@ -29,7 +29,7 @@ int _num_count(int num)
  * @sum: the sum of printed char(int numbers)
  */
 
-void print_int(int num, int *sum)
+void print_int(int num)
 {
 	char c;
 	unsigned int tmp;
@@ -37,7 +37,6 @@ void print_int(int num, int *sum)
 	if (num < 0)
 	{
 		write(1, "-", 1);
-		(*sum)++;
 		tmp = num * -1;
 	}
 	else
@@ -49,11 +48,10 @@ void print_int(int num, int *sum)
 	{
 		c = tmp + '0';
 		write(1, &c, 1);
-		(*sum)++;
 	}
 	else
 	{
-		print_int((tmp / 10), sum);
-		print_int((tmp % 10), sum);
+		print_int(tmp / 10);
+		print_int(tmp % 10);
 	}
 }
