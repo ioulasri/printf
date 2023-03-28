@@ -18,7 +18,7 @@ void print_int(int num, int *sum)
 	}
 	else
 	{
-		tmp = num
+		tmp = num;
 	}
 
 	if (tmp < 10)
