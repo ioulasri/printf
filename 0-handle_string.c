@@ -18,16 +18,15 @@ int _strlen(char *s)
 	return (i);
 }
 
+
 /**
  * _putchar - prints a character to stdout
  * @c: the char to print
- * @sum: the number of printed char
+ * Return: 1 on success, -1 on failure
  */
-
-void _putchar(char c, int *sum)
+int _putchar(char c)
 {
-	write(1, &c, 1);
-	(*sum)++;
+	return (write(1, &c, 1));
 }
 
 /**

@@ -1,6 +1,18 @@
 #include "main.h"
 
 /**
+ * _putchar - prints a character to stdout
+ * @c: the char to print
+ * @sum: the number of printed char
+ */
+
+void _putchar1(char c, int *sum)
+{
+	write(1, &c, 1);
+	(*sum)++;
+}
+
+/**
  * handle_spec - handles given format specifiers and prints the args
  * @c: the format specifier
  * @args: the arguments
@@ -20,13 +32,13 @@ void handle_spec(char c, int *sum, va_list args)
 	{
 		char ch = va_arg(args, int);
 
-		_putchar(ch, sum);
+		_putchar1(ch, sum);
 	}
 	else if (c == '%')
 	{
 		char ch = '%';
 
-		_putchar(ch, sum);
+		_putchar1(ch, sum);
 	}
 	else if (c == 's')
 	{
@@ -45,53 +57,70 @@ void handle_spec(char c, int *sum, va_list args)
 	}
 	else
 	{
-		_putchar(c, sum);
+		_putchar1(c, sum);
 	}
 }
 
 /**
- * _printf - prints string integer and char using format specifiers
- * @format: the first argument containing the string and format specifiers
- * Return: the length of the printed string or -1 on failure.
+ * _printf - prints a string to stdout
+ * @format: the string to print
+ * Return: the number of characters printed, or -1 on error
  */
 
 int _printf(const char *format, ...)
 {
-	int i = 0, sum = 0;
+	int i = 0, count = 0;
 	va_list args;
 
-	if (!format || !format[0])
+	if (!format)
 		return (-1);
 
 	va_start(args, format);
 
 	while (format[i])
 	{
-		if (format[i] != '%')
+		if (format[i] == '%')
 		{
-			_putchar(format[i], &sum);
 			i++;
-		}
-		else if (format[i + 1] == '\0')
-		{
-			va_end(args);
-			return (-1);
+			if (!format[i])
+			{
+				va_end(args);
+				return (-1);
+			}
+			if (format[i] != 'c' && format[i] != 's')
+			{
+				_putchar('%');
+				count++;
+				continue;
+			}
+			if (format[i] == 'c')
+			{
+				char c = (char)va_arg(args, int);
+
+				_putchar(c);
+				count++;
+			}
+			else if (format[i] == 's')
+			{
+				char *s = va_arg(args, char *);
+
+				if (!s)
+					s = "(null)";
+				while (*s)
+				{
+					_putchar(*s);
+					count++;
+					s++;
+				}
+			}
 		}
 		else
 		{
-			if (format[i + 1] == '%')
-			{
-				_putchar('%', &sum);
-				i += 2;
-				continue;
-			}
-
-			handle_spec(format[i + 1], &sum, args);
-			i += 2;
+			_putchar(format[i]);
+			count++;
 		}
+		i++;
 	}
-
 	va_end(args);
-	return (sum);
+	return (count);
 }
-
