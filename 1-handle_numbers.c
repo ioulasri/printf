@@ -5,7 +5,7 @@
  * @num: the number to be printed
  * @sum: the sum of printed characters (int numbers)
  */
-/*
+
 void print_int(int num, int *sum)
 {
 	char c;
@@ -34,7 +34,7 @@ void print_int(int num, int *sum)
 		print_int((tmp % 10), sum);
 	}
 }
-*/
+
 
 
 /**
@@ -45,7 +45,7 @@ void print_int(int num, int *sum)
  * that keeps track of the total
  * number of characters printed so far.
  */
-/*
+
 void print_binary(int num, int *sum)
 {
 	char buffer[50];
@@ -74,4 +74,3 @@ void print_binary(int num, int *sum)
 		_putchar(buffer[i], sum);
 	}
 }
-*/
