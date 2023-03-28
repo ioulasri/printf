@@ -5,7 +5,6 @@
  * @num: the number to be printed
  * @sum: the sum of printed characters (int numbers)
  */
-
 void print_int(int num, int *sum)
 {
 	char c;
