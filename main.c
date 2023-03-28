@@ -1,6 +1,6 @@
 #include "main.h"
 #include <limits.h>
-gi
+
 /**
  * main - entry point
  * Return: 0
