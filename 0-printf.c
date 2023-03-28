@@ -8,7 +8,7 @@
  * Return: returns the number of characters printed
  */
 
-void handle_spec(char c, int *sum, va_list args)
+void handle_spec(char c, char d, int *sum, va_list args)
 {
 	if (c == 'd' || c == 'i')
 	{
@@ -45,7 +45,11 @@ void handle_spec(char c, int *sum, va_list args)
 	}
 	else
 	{
-		_putchar(c, sum);
+		if (d == 0)
+		{
+			va_end(args);
+			return (-1);
+		}
 	}
 }
 
@@ -78,14 +82,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (format[i + 1] == '%')
-			{
-				_putchar('%', &sum);
-				i += 2;
-				continue;
-			}
-
-			handle_spec(format[i + 1], &sum, args);
+			handle_spec(format[i + 1], format[i + 2], &sum, args);
 			i += 2;
 		}
 	}
