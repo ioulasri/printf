@@ -5,13 +5,15 @@
  * @num: the number to be printed
  * @sum: the sum of printed characters (int numbers)
  */
-void print_int(int num, int *sum, char *buffer, int *buf_pos)
+void print_int(int num, int *sum)
 {
+	char c;
 	unsigned int tmp;
 
 	if (num < 0)
 	{
-		_putchar('-', sum, buffer, buf_pos);
+		write(1, "-", 1);
+		(*sum)++;
 		tmp = num * -1;
 	}
 	else
@@ -21,12 +23,14 @@ void print_int(int num, int *sum, char *buffer, int *buf_pos)
 
 	if (tmp < 10)
 	{
-		_putchar(tmp + '0', sum, buffer, buf_pos);
+		c = tmp + '0';
+		write(1, &c, 1);
+		(*sum)++;
 	}
 	else
 	{
-		print_int((tmp / 10), sum, buffer, buf_pos);
-		print_int((tmp % 10), sum, buffer, buf_pos);
+		print_int((tmp / 10), sum);
+		print_int((tmp % 10), sum);
 	}
 }
 
@@ -36,13 +40,13 @@ void print_int(int num, int *sum, char *buffer, int *buf_pos)
  * @sum: the pointer to the integer variable that
  * keeps track of the number of characters printed
  */
-void print_binary(unsigned int num, int *sum, char *buffer, int *buf_pos)
+void print_binary(unsigned int num, int *sum)
 {
 	if (num > 1)
 	{
-		print_binary(num / 2, sum, buffer, buf_pos);
+		print_binary(num / 2, sum);
 	}
-	_putchar(num % 2 == 0 ? '0' : '1', sum, buffer, buf_pos);
+	_putchar(num % 2 == 0 ? '0' : '1', sum);
 }
 
 /**
@@ -51,13 +55,13 @@ void print_binary(unsigned int num, int *sum, char *buffer, int *buf_pos)
  * @sum: the pointer to the integer variable
  * that keeps track of the number of characters printed
  */
-void print_decimal(unsigned int num, int *sum, char *buffer, int *buf_pos)
+void print_decimal(unsigned int num, int *sum)
 {
 	if (num >= 10)
 	{
-		print_decimal(num / 10, sum, buffer, buf_pos);
+		print_decimal(num / 10, sum);
 	}
-	_putchar(num % 10 + '0', sum, buffer, buf_pos);
+	_putchar(num % 10 + '0', sum);
 }
 
 /**
@@ -67,23 +71,23 @@ void print_decimal(unsigned int num, int *sum, char *buffer, int *buf_pos)
  * @sum: the pointer to the integer variable
  * that keeps track of the number of characters printed
  */
-void print_hex(unsigned int num, int cap, int *sum, char *buffer, int *buf_pos)
+void print_hex(unsigned int num, int cap, int *sum)
 {
 	int digit;
 
 	if (num >= 16)
 	{
-		print_hex(num / 16, cap, sum, buffer, buf_pos);
+		print_hex(num / 16, cap, sum);
 	}
 	digit = num % 16;
 
 	if (digit < 10)
 	{
-		_putchar(digit + '0', sum, buffer, buf_pos);
+		_putchar(digit + '0', sum);
 	}
 	else
 	{
-		_putchar(digit - 10 + (cap ? 'A' : 'a'), sum, buffer, buf_pos);
+		_putchar(digit - 10 + (cap ? 'A' : 'a'), sum);
 	}
 }
 
@@ -93,11 +97,11 @@ void print_hex(unsigned int num, int cap, int *sum, char *buffer, int *buf_pos)
  * @sum: the pointer to the integer variable
  * that keeps track of the number of characters printed
  */
-void print_octal(unsigned int num, int *sum, char *buffer, int *buf_pos)
+void print_octal(unsigned int num, int *sum)
 {
 	if (num >= 8)
 	{
-		print_octal(num / 8, sum, buffer, buf_pos);
+		print_octal(num / 8, sum);
 	}
-	_putchar(num % 8 + '0', sum, buffer, buf_pos);
+	_putchar(num % 8 + '0', sum);
 }
