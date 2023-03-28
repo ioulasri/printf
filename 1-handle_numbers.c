@@ -1,6 +1,4 @@
 #include "main.h"
-#define INT_MIN (-2147483647 - 1)
-
 
 /**
  * print_int - prints a given number
@@ -9,38 +7,32 @@
  */
 void print_int(int num, int *sum)
 {
-	char buffer[50];
-	int i = 0, sign = 0;
-
-	if (num == 0)
-	{
-		_putchar('0', sum);
-		return;
-	}
+	char c;
+	unsigned int tmp;
 
 	if (num < 0)
 	{
-		sign = 1;
-		num = -num;
+		write(1, "-", 1);
+		(*sum)++;
+		tmp = num * -1;
+	}
+	else
+	{
+		tmp = num;
 	}
 
-	while (num > 0)
+	if (tmp < 10)
 	{
-		buffer[i++] = num % 10 + '0';
-		num /= 10;
+		c = tmp + '0';
+		write(1, &c, 1);
+		(*sum)++;
 	}
-
-	if (sign)
+	else
 	{
-		buffer[i++] = '-';
-	}
-
-	while (--i >= 0)
-	{
-		_putchar(buffer[i], sum);
+		print_int((tmp / 10), sum);
+		print_int((tmp % 10), sum);
 	}
 }
-
 
 
 
