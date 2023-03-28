@@ -34,42 +34,17 @@ void print_int(int num, int *sum)
 	}
 }
 
-
-
 /**
- * print_binary - prints binary value of param.
- *
- * @num: The integer to print in binary form.
- * @sum: A pointer to an integer variable
- * that keeps track of the total
- * number of characters printed so far.
+ * print_binary - prints an integer in binary format
+ * @num: the integer to print
+ * @sum: the pointer to the integer variable that 
+ * keeps track of the number of characters printed
  */
-
-void print_binary(int num, int *sum)
+void print_binary(unsigned int num, int *sum)
 {
-	char buffer[50];
-	int i = 0;
-
-	if (num < 0)
+	if (num > 1)
 	{
-		_putchar('-', sum);
-		num = -num;
+		print_binary(num / 2, sum);
 	}
-
-	if (num == 0)
-	{
-		_putchar('0', sum);
-		return;
-	}
-
-	while (num > 0)
-	{
-		buffer[i++] = num % 2 + '0';
-		num /= 2;
-	}
-
-	while (--i >= 0)
-	{
-		_putchar(buffer[i], sum);
-	}
+	_putchar(num % 2 == 0 ? '0' : '1', sum);
 }

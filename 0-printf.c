@@ -39,7 +39,7 @@ void handle_spec(char c, int *sum, va_list args)
 	}
 	else if (c == 'b')
 	{
-		int num = va_arg(args, int);
+		unsigned int num = va_arg(args, unsigned int);
 
 		print_binary(num, sum);
 	}
