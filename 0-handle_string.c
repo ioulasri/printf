@@ -35,15 +35,10 @@ void _putchar(char c, int *sum)
  * @str: the string
  * @sum: the sum of printed characters
  */
-
-void print_str(char *str, int (*sum))
+void print_str(char *str, int *sum)
 {
-	int i = 0;
+	int len = _strlen(str);
 
-	while (str && str[i])
-	{
-		write(1, &str[i], 1);
-		(*sum)++;
-		i++;
-	}
+	write(1, str, len);
+	(*sum) += len;
 }

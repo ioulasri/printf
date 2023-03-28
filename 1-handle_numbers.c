@@ -24,39 +24,45 @@ int _num_count(int num)
 }
 
 /**
- * print_int- prints a given number
+ * print_int - prints a given number
  * @num: the number to be printed
- * @sum: the sum of printed char(int numbers)
+ * @sum: the sum of printed characters (int numbers)
  */
-
 void print_int(int num, int *sum)
 {
-	char c;
+	char buffer[20];
+	int i = 0;
 	unsigned int tmp;
+
+	if (num == 0)
+	{
+		_putchar('0', sum);
+		return;
+	}
 
 	if (num < 0)
 	{
-		write(1, "-", 1);
+		_putchar('-', sum);
 		(*sum)++;
-		tmp = num * -1;
+		tmp = -num;
 	}
 	else
 	{
 		tmp = num;
 	}
 
-	if (tmp < 10)
+	while (tmp > 0)
 	{
-		c = tmp + '0';
-		write(1, &c, 1);
-		(*sum)++;
+		buffer[i++] = tmp % 10 + '0';
+		tmp /= 10;
 	}
-	else
+
+	while (--i >= 0)
 	{
-		print_int((tmp / 10), sum);
-		print_int((tmp % 10), sum);
+		_putchar(buffer[i], sum);
 	}
 }
+
 
 /**
  * print_binary - prints binary value of param.
