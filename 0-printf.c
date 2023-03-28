@@ -24,7 +24,7 @@ void handle_spec(char c, int *sum, va_list args)
 	}
 	else if (c == '%')
 	{
-		void(args);
+		(void)args;
 		char ch = '%';
 
 		_putchar(ch, sum);
