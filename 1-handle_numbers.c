@@ -52,13 +52,13 @@ void print_binary(int num, int *sum)
 
 	if (num < 0)
 	{
-		_putchar1('-', sum);
+		_putchar('-', sum);
 		num = -num;
 	}
 
 	if (num == 0)
 	{
-		_putchar1('0', sum);
+		_putchar('0', sum);
 		return;
 	}
 

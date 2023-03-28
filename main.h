@@ -7,8 +7,7 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-void _putchar1(char c, int *sum);
-int _putchar(char c);
+void _putchar(char c, int *sum);
 void handle_spec(char c, int *sum, va_list args);
 int _strlen(char *s);
 int print_str(char *str, int *sum);
