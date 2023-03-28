@@ -57,12 +57,11 @@ void handle_spec(char c, int *sum, va_list args)
 
 int _printf(const char *format, ...)
 {
-	if (!format || !format[0])
-		return (-1);
-
 	int i = 0, sum = 0;
 	va_list args;
 
+	if (!format || !format[0])
+		return (-1);
 	va_start(args, format);
 
 	while (format[i])
