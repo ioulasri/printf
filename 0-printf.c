@@ -5,6 +5,7 @@
  * @format: the format string
  * Return: the number of characters printed (excluding the null byte)
  */
+
 int _printf(const char *format, ...)
 {
     va_list args;
@@ -31,6 +32,11 @@ int _printf(const char *format, ...)
             {
                 char *s = va_arg(args, char *);
                 count += _print_string(s);
+            }
+            else
+            {
+                count += _putchar('%');
+                count += _putchar(*format);
             }
         }
         else
