@@ -19,15 +19,28 @@ int _strlen(char *s)
 }
 
 /**
- * _putchar - prints a character to stdout
- * @c: the char to print
- * @sum: the number of printed char
+ * _putchar - writes a character to the output stream
+ * @c: the character to write
+ * @sum: the pointer to the integer variable that
+ * keeps track of the number of characters printed
+ * @buffer: the local buffer to use for output
+ * @buf_pos: the pointer to the integer variable
+ * that keeps track of the current position in the buffer
+ *
+ * Return: On success, the character written is
+ * returned. On error, -1 is returned.
  */
-
-void _putchar(char c, int *sum)
+int _putchar(char c, int *sum, char *buffer, int *buf_pos)
 {
-	write(1, &c, 1);
-	(*sum)++;
+    if (*buf_pos == BUFFER_SIZE)
+    {
+        write(STDOUT_FILENO, buffer, BUFFER_SIZE);
+        *buf_pos = 0;
+    }
+    buffer[*buf_pos] = c;
+    (*buf_pos)++;
+    (*sum)++;
+    return (c);
 }
 
 /**
@@ -36,14 +49,20 @@ void _putchar(char c, int *sum)
  * @sum: the sum of printed characters
  */
 
-void print_str(char *str, int (*sum))
+void print_str(char *str, int (*sum), char *buffer, int *buf_pos)
 {
 	int i = 0;
 
 	while (str && str[i])
 	{
-		write(1, &str[i], 1);
-		(*sum)++;
+		_putchar(str[i], sum, buffer, buf_pos);
 		i++;
+
+		if (*buf_pos == BUFFER_SIZE)
+		{
+			write(STDOUT_FILENO, buffer, BUFFER_SIZE);
+			*sum += BUFFER_SIZE;
+			*buf_pos = 0;
+		}
 	}
 }
