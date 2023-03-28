@@ -10,43 +10,28 @@
 
 void handle_spec(char c, int *sum, va_list args)
 {
-	if (c == 'd' || c == 'i')
+	switch (c)
 	{
-		int num = va_arg(args, int);
-
-		print_int(num, sum);
-	}
-	else if (c == 'c')
-	{
-		char ch = va_arg(args, int);
-
-		_putchar(ch, sum);
-	}
-	else if (c == '%')
-	{
-		char ch = '%';
-
-		_putchar(ch, sum);
-	}
-	else if (c == 's')
-	{
-		char *str = va_arg(args, char *);
-
-		if (str == NULL)
-			print_str("(null)", sum);
-		else
-			print_str(str, sum);
-	}
-	else if (c == 'b')
-	{
-		unsigned int num = va_arg(args, unsigned int);
-
-		print_binary(num, sum);
-	}
-	else
-	{
-		_putchar('%', sum);
-		_putchar(c, sum);
+		case 'd':
+		case 'i':
+			print_int(va_arg(args, int), sum);
+			break;
+		case 'c':
+			_putchar(va_arg(args, int), sum);
+			break;
+		case '%':
+			_putchar('%', sum);
+			break;
+		case 's':
+			print_str(va_arg(args, char *), sum);
+			break;
+		case 'b':
+			print_binary(va_arg(args, unsigned int), sum);
+			break;
+		default:
+			_putchar('%', sum);
+			_putchar(c, sum);
+			break;
 	}
 }
 
