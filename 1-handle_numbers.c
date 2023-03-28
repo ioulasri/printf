@@ -37,7 +37,7 @@ void print_int(int num, int *sum)
 /**
  * print_binary - prints an integer in binary format
  * @num: the integer to print
- * @sum: the pointer to the integer variable that 
+ * @sum: the pointer to the integer variable that
  * keeps track of the number of characters printed
  */
 void print_binary(unsigned int num, int *sum)
@@ -47,4 +47,59 @@ void print_binary(unsigned int num, int *sum)
 		print_binary(num / 2, sum);
 	}
 	_putchar(num % 2 == 0 ? '0' : '1', sum);
+}
+
+/**
+ * print_decimal - prints an unsigned integer in decimal format
+ * @num: the unsigned integer to print
+ * @sum: the pointer to the integer variable
+ * that keeps track of the number of characters printed
+ */
+void print_decimal(unsigned int num, int *sum)
+{
+	if (num >= 10)
+	{
+		print_decimal(num / 10, sum);
+	}
+	_putchar(num % 10 + '0', sum);
+}
+
+/**
+ * print_hex - prints an unsigned integer in hexadecimal format
+ * @num: the unsigned integer to print
+ * @cap: a flag indicating whether to use capital letters (1) or not (0)
+ * @sum: the pointer to the integer variable
+ * that keeps track of the number of characters printed
+ */
+void print_hex(unsigned int num, int cap, int *sum)
+{
+	if (num >= 16)
+	{
+		print_hex(num / 16, cap, sum);
+	}
+	int digit = num % 16;
+
+	if (digit < 10)
+	{
+		_putchar(digit + '0', sum);
+	}
+	else
+	{
+		_putchar(digit - 10 + (cap ? 'A' : 'a'), sum);
+	}
+}
+
+/**
+ * print_octal - prints an unsigned integer in octal format
+ * @num: the unsigned integer to print
+ * @sum: the pointer to the integer variable
+ * that keeps track of the number of characters printed
+ */
+void print_octal(unsigned int num, int *sum)
+{
+	if (num >= 8)
+	{
+		print_octal(num / 8, sum);
+	}
+	_putchar(num % 8 + '0', sum);
 }
