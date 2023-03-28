@@ -50,7 +50,11 @@ void handle_spec(char c, char d, int *sum, va_list args)
 			*sum = -1;
 		}
 		else
-			_putchar(d, sum);
+		{
+			char ch = va_arg(args, int);
+
+			_putchar(ch, sum);
+		}
 	}
 }
 
