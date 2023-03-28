@@ -34,11 +34,21 @@ void _putchar(char c, int *sum)
  * print_str - prints a given string
  * @str: the string
  * @sum: the sum of printed characters
+ * Return: 0 if successful, -1 if str is NULL
  */
-void print_str(char *str, int *sum)
+int print_str(char *str, int *sum)
 {
-	int len = _strlen(str);
+	int i = 0;
 
-	write(1, str, len);
-	(*sum) += len;
+	if (str == NULL)
+		return (-1);
+
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		(*sum)++;
+		i++;
+	}
+
+	return (0);
 }

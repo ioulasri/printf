@@ -1,4 +1,6 @@
 #include "main.h"
+#define INT_MIN (-2147483647 - 1)
+
 
 /**
  * _num_count - counts the length of a number
@@ -30,38 +32,37 @@ int _num_count(int num)
  */
 void print_int(int num, int *sum)
 {
-	char buffer[20];
-	int i = 0;
+	char c;
 	unsigned int tmp;
 
-	if (num == 0)
+	if (num == INT_MIN)
 	{
-		_putchar('0', sum);
+		print_str("-2147483648", sum);
 		return;
 	}
 
 	if (num < 0)
 	{
-		_putchar('-', sum);
+		write(1, "-", 1);
 		(*sum)++;
-		tmp = -num;
-	}
-	else
+		tmp = (unsigned int) -num;
+	} else
 	{
-		tmp = num;
-	}
-
-	while (tmp > 0)
-	{
-		buffer[i++] = tmp % 10 + '0';
-		tmp /= 10;
+		tmp = (unsigned int) num;
 	}
 
-	while (--i >= 0)
+	if (tmp < 10)
 	{
-		_putchar(buffer[i], sum);
+		c = tmp + '0';
+		write(1, &c, 1);
+		(*sum)++;
+	} else
+	{
+		print_int(tmp / 10, sum);
+		print_int(tmp % 10, sum);
 	}
 }
+
 
 
 /**
