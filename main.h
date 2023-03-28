@@ -5,10 +5,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#define BUFFER_SIZE 1024
-
 int _printf(const char *format, ...);
-int _putchar(char c, int *sum);
+void _putchar(char c, int *sum);
 void handle_spec(char c, int *sum, va_list args);
 int _strlen(char *s);
 void print_str(char *str, int (*sum));
