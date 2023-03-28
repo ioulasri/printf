@@ -29,10 +29,10 @@ void handle_spec(char c, int *sum, va_list args)
 			print_binary(va_arg(args, unsigned int), sum);
 			break;
 		case 'u':
-			print_unsigned(va_arg(args, unsigned int), 10, sum);
+			print_unsign(va_arg(args, unsigned int), 10, sum);
 			break;
 		case 'o':
-			print_unsigned(va_arg(args, unsigned int), 8, sum);
+			print_unsign(va_arg(args, unsigned int), 8, sum);
 			break;
 		case 'x':
 			print_hex(va_arg(args, unsigned int), 0, sum);
