@@ -3,65 +3,44 @@
 
 
 /**
- * _num_count - counts the length of a number
- * @num: the number
- * Return: the length of the number
- */
-
-int _num_count(int num)
-{
-	int count = 0;
-
-	if (num < 0)
-	{
-		num *= -1;
-		count++;
-	}
-	while (num > 0)
-	{
-		num /= 10;
-		count++;
-	}
-	return (count);
-}
-
-/**
  * print_int - prints a given number
  * @num: the number to be printed
  * @sum: the sum of printed characters (int numbers)
  */
 void print_int(int num, int *sum)
 {
-	char c;
-	unsigned int tmp;
+	char buffer[50];
+	int i = 0, sign = 0;
 
-	if (num == INT_MIN)
+	if (num == 0)
 	{
-		print_str("-2147483648", sum);
+		_putchar('0', sum);
 		return;
 	}
 
 	if (num < 0)
 	{
-		write(1, "-", 1);
-		(*sum)++;
-		tmp = (unsigned int) -num;
-	} else
-	{
-		tmp = (unsigned int) num;
+		sign = 1;
+		num = -num;
 	}
 
-	if (tmp < 10)
+	while (num > 0)
 	{
-		c = tmp + '0';
-		write(1, &c, 1);
-		(*sum)++;
-	} else
+		buffer[i++] = num % 10 + '0';
+		num /= 10;
+	}
+
+	if (sign)
 	{
-		print_int(tmp / 10, sum);
-		print_int(tmp % 10, sum);
+		buffer[i++] = '-';
+	}
+
+	while (--i >= 0)
+	{
+		_putchar(buffer[i], sum);
 	}
 }
+
 
 
 
@@ -76,24 +55,29 @@ void print_int(int num, int *sum)
 
 void print_binary(int num, int *sum)
 {
-	int bits[32];
+	char buffer[50];
 	int i = 0;
 
 	if (num < 0)
 	{
-		putchar('-');
+		_putchar('-', sum);
 		num = -num;
-		(*sum)++;
 	}
 
-	do {
-		bits[i++] = num % 2;
+	if (num == 0)
+	{
+		_putchar('0', sum);
+		return;
+	}
+
+	while (num > 0)
+	{
+		buffer[i++] = num % 2 + '0';
 		num /= 2;
-	} while (num > 0);
+	}
 
 	while (--i >= 0)
 	{
-		putchar(bits[i] + '0');
-		(*sum)++;
+		_putchar(buffer[i], sum);
 	}
 }
