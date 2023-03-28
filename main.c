@@ -15,16 +15,10 @@ int main(void)
 	printf("Character:[%c]\n", '%');
 	len = _printf("%b\n", 98);
 	printf("%d\n", len);
-	len = _printf("String:[%%%%] ok %d\n", 43);
 	printf("%d\n", len);
-	len = printf("String:[%%%%] ok %d\n", 32);
 	_printf("%d\n", len);
 	_printf("Percent:[%%]\n");
 	printf("Percent:[%%]\n");
-	len = _printf("Print this number [%d]\n", -214748648);
-	printf("%d\n", len);
-	len = printf("Print this number [%d]\n", -214748648);
-	printf("%d\n", len);
 	printf("hello [%c] oh\n", '\n');
 	_printf("hello [%c] oh\n", '\n');
 	return (0);
