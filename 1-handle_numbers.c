@@ -91,17 +91,4 @@ void print_hex(unsigned int num, int cap, int *sum)
 	}
 }
 
-/**
- * print_octal - prints an unsigned integer in octal format
- * @num: the unsigned integer to print
- * @sum: the pointer to the integer variable
- * that keeps track of the number of characters printed
- */
-void print_octal(unsigned int num, int *sum)
-{
-	if (num >= 8)
-	{
-		print_octal(num / 8, sum);
-	}
-	_putchar(num % 8 + '0', sum);
-}
+
