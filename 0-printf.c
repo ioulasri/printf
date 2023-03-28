@@ -48,7 +48,7 @@ void handle_spec(char c, char d, int *sum, va_list args)
 		if (d == 0)
 		{
 			va_end(args);
-			return (-1);
+			*sum = -1;
 		}
 	}
 }
@@ -83,6 +83,8 @@ int _printf(const char *format, ...)
 		else
 		{
 			handle_spec(format[i + 1], format[i + 2], &sum, args);
+			if (sum == -1)
+				break;
 			i += 2;
 		}
 	}
