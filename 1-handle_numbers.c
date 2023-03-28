@@ -70,6 +70,6 @@ void print_binary(int num, int *sum)
 
 	while (--i >= 0)
 	{
-		_putchar1(buffer[i], sum);
+		_putchar(buffer[i], sum);
 	}
 }

@@ -24,11 +24,11 @@ int _strlen(char *s)
  * @c: the char to print
  * Return: 1 on success, -1 on failure
  */
-int _putchar(char c)
+void _putchar(char c, int *sum)
 {
-	return (write(1, &c, 1));
+	write(1, &c, 1);
+	(*sum)++;
 }
-
 /**
  * print_str - prints a given string
  * @str: the string
