@@ -73,11 +73,13 @@ void print_decimal(unsigned int num, int *sum)
  */
 void print_hex(unsigned int num, int cap, int *sum)
 {
+	int digit;
+
 	if (num >= 16)
 	{
 		print_hex(num / 16, cap, sum);
 	}
-	int digit = num % 16;
+	digit = num % 16;
 
 	if (digit < 10)
 	{
