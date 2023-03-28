@@ -48,7 +48,6 @@ void handle_spec(char c, char d, int *sum, va_list args)
 		if (d == 0)
 		{
 			va_end(args);
-			*sum = -1;
 		}
 	}
 }
