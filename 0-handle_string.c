@@ -1,36 +1,49 @@
 #include "main.h"
 
 /**
- * _putchar - writes a character to the standard output
- * @c: the character to write
- * Return: 1 on success, -1 on error
+ * _strlen - returns the length of a given string
+ * @s: the string
+ * Return: the length of given string
  */
-int _putchar(char c)
+
+int _strlen(char *s)
 {
-    return (write(1, &c, 1));
+	int i;
+
+	i = 0;
+	while (s[i])
+	{
+		i++;
+	}
+	return (i);
 }
 
 /**
- * _print_string - prints a string to the standard output
- * @str: the string to print
- * Return: the number of characters printed
+ * _putchar - prints a character to stdout
+ * @c: the char to print
+ * @sum: the number of printed char
  */
-int _print_string(char *str)
+
+void _putchar(char c, int *sum)
 {
-    int count = 0;
+	write(1, &c, 1);
+	(*sum)++;
+}
 
-    if (str == NULL)
-    {
-        count += write(1, "(null)", 6);
-    }
-    else
-    {
-        while (*str)
-        {
-            count += _putchar(*str);
-            str++;
-        }
-    }
+/**
+ * print_str - prints a given string
+ * @str: the string
+ * @sum: the sum of printed characters
+ */
 
-    return (count);
+void print_str(char *str, int (*sum))
+{
+	int i = 0;
+
+	while (str && str[i])
+	{
+		write(1, &str[i], 1);
+		(*sum)++;
+		i++;
+	}
 }
