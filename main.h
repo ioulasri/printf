@@ -13,7 +13,5 @@ void print_str(char *str, int (*sum));
 int _num_count(int num);
 void print_int(int num, int *sum);
 void print_binary(unsigned int num, int *sum);
-void print_unsign(unsigned int num, int base, int *sum);
-void print_hex(unsigned int num, int cap, int *sum);
 
 #endif

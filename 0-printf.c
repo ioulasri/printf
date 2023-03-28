@@ -28,17 +28,6 @@ void handle_spec(char c, int *sum, va_list args)
 		case 'b':
 			print_binary(va_arg(args, unsigned int), sum);
 			break;
-		case 'u':
-			print_unsign(va_arg(args, unsigned int), 10, sum);
-			break;
-		case 'o':
-			print_unsign(va_arg(args, unsigned int), 8, sum);
-			break;
-		case 'x':
-			print_hex(va_arg(args, unsigned int), 0, sum);
-			break;
-		case 'X':
-			print_hex(va_arg(args, unsigned int), 1, sum);
 		default:
 			_putchar('%', sum);
 			_putchar(c, sum);

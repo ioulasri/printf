@@ -37,7 +37,7 @@ void print_int(int num, int *sum)
 /**
  * print_binary - prints an integer in binary format
  * @num: the integer to print
- * @sum: the pointer to the integer variable that
+ * @sum: the pointer to the integer variable that 
  * keeps track of the number of characters printed
  */
 void print_binary(unsigned int num, int *sum)
@@ -47,46 +47,4 @@ void print_binary(unsigned int num, int *sum)
 		print_binary(num / 2, sum);
 	}
 	_putchar(num % 2 == 0 ? '0' : '1', sum);
-}
-
-/**
- * print_unsign - prints an unsigned integer in the specified base
- * @num: the unsigned integer to print
- * @base: the base to print the integer in (10 or 8)
- * @sum: the pointer to the integer variable
- * that keeps track of the number of characters printed
- */
-void print_unsign(unsigned int num, int base, int *sum)
-{
-	if (num >= (unsigned int) base)
-	{
-		print_unsign(num / base, base, sum);
-	}
-	_putchar(num % base + '0', sum);
-}
-
-/**
- * print_hex - prints an unsigned integer in hexadecimal format
- * @num: the unsigned integer to print
- * @cap: a flag indicating whether to use capital letters (1) or not (0)
- * @sum: the pointer to the integer variable
- * that keeps track of the number of characters printed
- */
-void print_hex(unsigned int num, int cap, int *sum)
-{
-	int digit;
-
-	if (num >= 16)
-	{
-		print_hex(num / 16, cap, sum);
-	}
-	digit = num % 16;
-	if (digit < 10)
-	{
-		_putchar(digit + '0', sum);
-	}
-	else
-	{
-		_putchar(digit - 10 + (cap ? 'A' : 'a'), sum);
-	}
 }
