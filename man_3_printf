@@ -1,134 +1,87 @@
-.\" _printf man page
-.\"
-.\"
-.\"
-.\"
-.\"
-.TH _PRINTF "August 05 2022" "0.1" "Library functions manual"
-
+.TH _printf 1 "April 16, 2022" "version 1.0" "_printf man page"
 .SH NAME
-.SH ""
-
-.B _printf
-- custom version for printf function.
-
+_printf - format and print data
 .SH SYNOPSIS
-.SH ""
+#include <unistd.h> <stdarg.h> <stdlib.h> "main.h"
 
-#include "main.h"
-
-int _printf(const char *[FORMAT], ...);
+int printf(const char *format, ...);
 
 .SH DESCRIPTION
-.SH ""
+function that produces output according to a format.  Writes the output under the control of a format string that specifies how subsequent arguments (or arguments accessed via the variable-length argument facilities of stdarg(3)) are converted for output.  Execute according to option:
 
-
-The printf function sends formatted output to stdout.
-A custom _printf() for learning purposes was developed by cohort  #8 students Nicks and Mose Parsanka.
-_printf() function format string is a character string, beginning and ending in its initial shift state, if any. 
-These arguments are placed using the percentage '%' operator
-
-.SS Compilation
-
-.P
+.I
+.SS CONVERSION SPECIFIERS:
 .RS
-#include "main.h"
 
-$ gcc -Wall -Werror -Wextra -pedantic -Wno-format *.c
-$ gcc -Wall -Werror -Wextra -pedantic -g -Wno-format *.c (for gdb debbuging)
+A character that specifies the type of conversion to be applied. The conversion specifiers and their meanings are:
+
+.IP d,i
+Decimal signed integer. The int argument is converted to signed decimal notation. 
+
+.IP c
+Character. The int argument is converted to an unsigned char, and the resulting character is written.
+
+.IP s
+The const char * argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are written up to (but not including) a terminating null byte ('\0').
+
+.IP o,u,x,X
+The unsigned int argument is converted to unsigned octal (o), unsigned decimal (u), or unsigned hexadecimal (x and X) notation. The letters abcdef are used for x conversions; the letters ABCDEF are used for X conversions.
+
+.IP p
+The void * pointer argument is printed in hexadecimal (as if by %#x or %#lx).
+
+.I
+.SS CUSTOM CONVERSION SPECIFIERS
+.RS
+
+.IP b
+Decimal signed integer. The int argument is converted to binary notation.
+
+.IP r
+The const char * argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are written up to (but n\ot including) a terminating null byte ('\0') in reverse order.
+
+
+.IP R
+The const char * argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are written up to (but n\
+\ot including) a terminating null byte ('\0') in ROT13 format.
+
+
+.SH RETURN VALUE
+.RS
+Upon successful return, these functions return the number of characters printed (excluding the null byte used to end output to strings).
+
+If an output error is encountered, a negative value (-1) is returned.
+
+
+.SH EXAMPLES:
+.RS
+.SS --------------
+.I
+.SS Character[%c]:
+.RS
+.SS --------------
+.SS Input         _printf("This is a char: [%c]", 'C');
+.SS Output	   This is a char: [C]
+.SS --------------
+.I
+.SS Literal String:
+.RS
+.SS --------------
+.SS Input	 _printf("Let's try to printf a simple sentence");
+.SS Output	  Let's try to printf a simple sentence
+.SS --------------
+.I
+.SS Integers[%i]:
+.RS
+.SS --------------
+.SS Input	 _printf("This is a number: [%i]", 20);
+.SS Output	  This is a number: [20]
+.SS --------------
 .RE
 
-.SS Printing
-.RS
-
-int _printf(const char *[FORMAT], ...);
-
-FORMAT is the string that takes n specifier followed by a '%'
-symbol. i.e. "Hello this is %s from %d cohort". '...' is the variadic \
-(any type of variable).
-
-.SS Example
-
-.RS
-
-.B Input
-.PP
-_printf("Hello this is %s from %d cohort\\n\\", 33);
-.PP
-.B Output
-.PP
-Hello this is %s from %d cohort
-.RE
-
-.SS Return Value
-
-Return value is a n number of characters except NULL
-
-.SH FLAG SPECIFIERS
-.SH ""
-
-custom and non-custom specifier modifiers
-
-.SH THE LENGTH MODIFIERS
-.SH ""
-
-Length modifiers.
-
-.SH THE CONVERSION SPECIFIERS
-.SH ""
-
-.RS
-Current arguments handled by conversion specifiers:
-
-.IT
-.B %
-- % symbol is set without argument and conversion specification has to be'%%'.
-
-.IT
-.B c
-- integer or char argument converted to unsigned char.
-
-.IT
-.B d, i
-- int argument is converted to signed decimal integer.
-
-.IT
-.B s
-- string argument. _printf handles s conversion specifier if the argument value
- is not a pointer to a literal string. \
-
-.IT
-
-.B o, u, x, X
-- unsigned int argument converted to unsigned octal (o), unsigned decimal (u),
-unsigned hexidecimal notation (x) for lower case and (X) for upper case
-
-.IT
-.B b
-- The unsigned int argument is converted to binary.
-
-.IT
-.B p
-- The pointer is printed in hexidecimal format preceded by '0x'.
-
-.IT
-.B r, R
-- 'r' prints string in reverse. 'R' prints encrypted rot13.
-
-.IT
-.B S
-- ascii <32 & >127 has to appear in the argument string. converted to
-hexadecimal preceded by \x
-
-.RE
-
-.P
-
-.SH "AUTHORS"
-.SH ""
-
-Nicks Gitobu and Musa Parsanka
-
-.B Twitter
-.PP
-@pronic_tech @musa_parsanka
+.SH SEE ALSO
+.I printf(3)
+.SH BUGS
+Report _printf Imad oulasri (imad.oulasri01@gmail.com), baderddine (badr@gmail.com)
+.SH AUTHORS
+Imad oulasri and Badr, ALX Cohort 12.
