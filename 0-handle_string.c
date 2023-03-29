@@ -42,8 +42,7 @@ void print_str(char *str, int (*sum))
 	
 	if (str == NULL)
 	{
-		print_str("(null)", sum);
-		return;
+		str = "(null)";
 	}
 	while (str && str[i])
 	{
