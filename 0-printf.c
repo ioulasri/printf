@@ -23,7 +23,10 @@ void handle_spec(char c, int *sum, va_list args)
 			_putchar('%', sum);
 			break;
 		case 's':
-			print_str(va_arg(args, char *), sum);
+			if (str == NULL)
+				print_str("(null)", sum);
+			else
+				print_str(va_arg(args, char *), sum);
 			break;
 		case 'b':
 			print_binary(va_arg(args, unsigned int), sum);
