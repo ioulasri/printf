@@ -42,7 +42,6 @@ void print_str(char *str, int (*sum))
 	
 	if (str == NULL)
 	{
-		putchar('');
 		putchar('(');
 		putchar('n');
 		putchar('u');
