@@ -16,7 +16,7 @@ int main() {
     int num = 42;
     double pi = 3.14159;
     char *str = "Hello, world!";
-    my_printf("The number is %d, the string is %s, and pi is %f\n", num, str, pi);
+    _printf("The number is %d, the string is %s, and pi is %f\n", num, str, pi);
     return 0;
 }
 ```
