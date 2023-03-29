@@ -42,7 +42,14 @@ void print_str(char *str, int (*sum))
 	
 	if (str == NULL)
 	{
-		str = "(null)";
+		putchar('');
+		putchar('(');
+		putchar('n');
+		putchar('u');
+		putchar('l');
+		putchar('l');
+		putchar(')');
+		*(sum) += 6;
 	}
 	while (str && str[i])
 	{
