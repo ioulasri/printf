@@ -48,7 +48,7 @@ void print_str(char *str, int (*sum))
 		putchar('l');
 		putchar('l');
 		putchar(')');
-		*(sum) += 6;
+		*(sum++);
 	}
 	while (str && str[i])
 	{
