@@ -19,7 +19,7 @@ int main() {
     my_printf("The number is %d, the string is %s, and pi is %f\n", num, str, pi);
     return 0;
 }
-
+```
 This will output: The number is 42, the string is Hello, world!, and pi is 3.141590.
 
 ### Supported Format Specifiers
