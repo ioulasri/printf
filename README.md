@@ -95,5 +95,5 @@ All the above options work well together. This task involves testing the printf 
 ---
 
 ### Authors
-* **BADR** - [@gmail.com](https://github.com/)
+* **BADR** - [badrechahide@gmail.com](https://github.com/badrbnh)
 * **IMAD OULASRI** - [imad.oulasri01@gmail.com](https://github.com/ioulasri)
