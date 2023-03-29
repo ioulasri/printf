@@ -39,7 +39,10 @@ void _putchar(char c, int *sum)
 void print_str(char *str, int (*sum))
 {
 	int i = 0;
-
+	
+	if (str == NULL)
+		print_str("(null)", sum);
+		return;
 	while (str && str[i])
 	{
 		write(1, &str[i], 1);
