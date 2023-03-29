@@ -9,7 +9,7 @@ The goal of this project is to gain a deeper understanding of the inner workings
 To use this printf function, simply include the my_printf.h header file in your C program, and then call the my_printf function with the desired format string and arguments.
 
 ### Here's an example usage:
-
+```c
 #include "main.h"
 
 int main() {
@@ -19,6 +19,7 @@ int main() {
     my_printf("The number is %d, the string is %s, and pi is %f\n", num, str, pi);
     return 0;
 }
+
 This will output: The number is 42, the string is Hello, world!, and pi is 3.141590.
 
 ### Supported Format Specifiers
